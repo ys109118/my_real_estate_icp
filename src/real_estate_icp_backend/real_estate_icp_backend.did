@@ -1,0 +1,20 @@
+type Property = record {
+  id : text;
+  shares : nat;
+  name : text;
+};
+
+type HttpResponse = record {
+  status : nat16;
+  body : blob;
+};
+
+service : {
+  distribute_rent : (text, nat64) -> ();
+  get_voting_result : (text) -> (opt bool) query;
+  http_request_test : () -> (HttpResponse) query;
+  mint_property_shares : (text, nat64) -> ();
+  purchase_shares_with_ckbtc : (text, nat64) -> ();
+  transfer_shares : (principal, nat64) -> (bool);
+  vote_on_decision : (text, bool) -> ();
+}

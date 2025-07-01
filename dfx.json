@@ -1,0 +1,51 @@
+{
+  "canisters": {
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    },
+    "real_estate_icp_backend": {
+      "candid": "src/real_estate_icp_backend/real_estate_icp_backend.did",
+      "package": "real_estate_icp_backend",
+      "type": "rust",
+      "main": "src/real_estate_icp_backend/src/lib.rs"
+    },
+    "real_estate_icp_frontend": {
+      "dependencies": ["real_estate_icp_backend"],
+      "frontend": {
+        "entrypoint": "src/real_estate_icp_frontend/src/main.jsx"
+      },
+      "source": ["src/real_estate_icp_frontend"],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "bitcoin": {
+      "enabled": false,
+      "log_level": "info",
+      "nodes": [
+        "127.0.0.1:18444"
+      ]
+    },
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "dfx": "0.25.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
